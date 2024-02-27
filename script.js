@@ -36,7 +36,7 @@ function getAnagramArray(input, amount) {
   }
 
   if (anagrams.length > 1) {
-    return anagrams.join("\n");
+    return anagrams.join(" / \n");
   } else {
     return anagrams;
   }
