@@ -35,7 +35,11 @@ function getAnagramArray(input, amount) {
     }
   }
 
-  return anagrams;
+  if (anagrams.length > 1) {
+    return anagrams.join("\n");
+  } else {
+    return anagrams;
+  }
 }
 
 function getInput() {
@@ -57,11 +61,7 @@ function setSmallerFontSize() {
 }
 
 const anagramHistory = [];
-
-// get anagrams
-//const anagrams = getAnagramArray(input, amount);
-
-const amount = 1;
+const amount = 3;
 const generateButton = document.getElementById("generateButton");
 const restartButton = document.getElementById("restartButton");
 const enterTitle = document.getElementById("enterTitle");
