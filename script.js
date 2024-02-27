@@ -1,3 +1,12 @@
+const generateButton = document.getElementById("generateButton");
+const restartButton = document.getElementById("restartButton");
+const enterTitle = document.getElementById("enterTitle");
+const inputField = document.getElementById("inputField");
+let genNumber = document.getElementById("generateNumber");
+let outputText = document.getElementById("outputText");
+let amount = 1;
+const anagramHistory = [];
+
 function factorial(num) {
   let result = 1;
   for (let i = 1; i <= num; i++) {
@@ -39,7 +48,7 @@ function getAnagramArray(input, amount) {
   }
 
   if (anagrams.length > 1) {
-    return anagrams.join(" / \n");
+    return anagrams.join(" / ");
   } else {
     return anagrams;
   }
@@ -76,23 +85,13 @@ function startSession(input) {
 function setSmallerFontSize() {
   enterTitle.style.fontSize = "1.5rem";
   outputText.style.fontSize = "1.5rem";
-  outputText.style.marginTop = "3.5rem";
 }
-
-const anagramHistory = [];
-const generateButton = document.getElementById("generateButton");
-const restartButton = document.getElementById("restartButton");
-const enterTitle = document.getElementById("enterTitle");
-const inputField = document.getElementById("inputField");
-let amount = 1;
-let genNumber = document.getElementById("generateNumber");
-let outputText = document.getElementById("outputText");
 
 generateButton.addEventListener("click", function () {
   const input = getInput();
   if (input.length > 1) {
     startSession(input);
-    if (input.length > 14) {
+    if (input.length > 12) {
       setSmallerFontSize();
     }
   }
