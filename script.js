@@ -83,7 +83,7 @@ function startSession(input) {
 }
 
 function setSmallerFontSize() {
-  enterTitle.style.fontSize = "1.5rem";
+  enterTitle.style.fontSize = "2rem";
   outputText.style.fontSize = "1.5rem";
 }
 
@@ -91,7 +91,7 @@ generateButton.addEventListener("click", function () {
   const input = getInput();
   if (input.length > 1) {
     startSession(input);
-    if (input.length > 12) {
+    if (input.length > 9 && screen.width < 750) {
       setSmallerFontSize();
     }
   }
