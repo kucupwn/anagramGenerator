@@ -55,7 +55,7 @@ function getAnagramArray(input, amount) {
 }
 
 function getInput() {
-  const inputValue = document.getElementById("inputField").value.toUpperCase();
+  const inputValue = inputField.value.trim().toUpperCase();
 
   return inputValue;
 }
