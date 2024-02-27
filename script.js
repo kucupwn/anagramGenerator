@@ -44,6 +44,13 @@ function getInput() {
   return inputValue;
 }
 
+function startSession(input) {
+  enterTitle.innerHTML = input;
+  outputText.innerHTML = getAnagramArray(input, amount);
+  inputField.classList.add("hidden");
+  outputText.classList.remove("hidden");
+}
+
 function setSmallerFontSize() {
   outputText.style.fontSize = "2rem";
   outputText.style.marginTop = "3.5rem";
@@ -57,15 +64,14 @@ const anagramHistory = [];
 const amount = 1;
 const generateButton = document.getElementById("generateButton");
 const restartButton = document.getElementById("restartButton");
+const enterTitle = document.getElementById("enterTitle");
+const inputField = document.getElementById("inputField");
 let outputText = document.getElementById("outputText");
 
 generateButton.addEventListener("click", function () {
   const input = getInput();
   if (input.length > 1) {
-    document.getElementById("enterTitle").innerHTML = input;
-    outputText.innerHTML = getAnagramArray(input, amount);
-    document.getElementById("inputField").classList.add("hidden");
-    outputText.classList.remove("hidden");
+    startSession(input);
     if (input.length > 14) {
       setSmallerFontSize();
     }
