@@ -52,6 +52,7 @@ function startSession(input) {
   enterTitle.innerHTML = input;
   outputText.innerHTML = getAnagramArray(input, amount);
   inputField.classList.add("hidden");
+  genNumber.classList.add("hidden");
   outputText.classList.remove("hidden");
 }
 
@@ -66,6 +67,7 @@ const generateButton = document.getElementById("generateButton");
 const restartButton = document.getElementById("restartButton");
 const enterTitle = document.getElementById("enterTitle");
 const inputField = document.getElementById("inputField");
+const genNumber = document.getElementById("generateNumber");
 let outputText = document.getElementById("outputText");
 
 generateButton.addEventListener("click", function () {
