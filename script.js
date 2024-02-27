@@ -54,6 +54,7 @@ function startSession(input) {
   inputField.classList.add("hidden");
   genNumber.classList.add("hidden");
   outputText.classList.remove("hidden");
+  generateButton.textContent = "Get anagram(s)";
 }
 
 function setSmallerFontSize() {
