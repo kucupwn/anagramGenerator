@@ -20,13 +20,16 @@ function getAnagram(name) {
 
 function getAnagramArray(input, amount) {
   const anagrams = [];
-  const maxVariant = factorial(input.length);
+  const maxVariants = factorial(input.length);
+  const remainingVariants = maxVariants - anagramHistory.length;
 
-  if (maxVariant - anagramHistory.length < amount || amount > maxVariant) {
+  if (remainingVariants === 0) {
     return "No more variants";
   }
 
-  while (anagrams.length < Math.min(amount, maxVariant)) {
+  const generateAmount = Math.min(amount, remainingVariants);
+
+  while (anagrams.length < generateAmount) {
     const anagram = getAnagram(input);
 
     if (!anagramHistory.includes(anagram)) {
@@ -46,6 +49,19 @@ function getInput() {
   const inputValue = document.getElementById("inputField").value.toUpperCase();
 
   return inputValue;
+}
+
+function setGenerateNumber() {
+  if (amount === 1) {
+    amount = 3;
+    genNumber.textContent = 3;
+  } else if (amount === 3) {
+    amount = 5;
+    genNumber.textContent = 5;
+  } else if (amount === 5) {
+    amount = 1;
+    genNumber.textContent = 1;
+  }
 }
 
 function startSession(input) {
@@ -83,16 +99,7 @@ generateButton.addEventListener("click", function () {
 });
 
 genNumber.addEventListener("click", function () {
-  if (amount === 1) {
-    amount = 3;
-    genNumber.textContent = 3;
-  } else if (amount === 3) {
-    amount = 5;
-    genNumber.textContent = 5;
-  } else if (amount === 5) {
-    amount = 1;
-    genNumber.textContent = 1;
-  }
+  setGenerateNumber();
 });
 
 restartButton.addEventListener("click", function () {
