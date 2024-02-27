@@ -44,6 +44,11 @@ function getInput() {
   return inputValue;
 }
 
+function setSmallerFontSize() {
+  outputText.style.fontSize = "2rem";
+  outputText.style.marginTop = "3.5rem";
+}
+
 const anagramHistory = [];
 
 // get anagrams
@@ -62,8 +67,7 @@ generateButton.addEventListener("click", function () {
     document.getElementById("inputField").classList.add("hidden");
     outputText.classList.remove("hidden");
     if (input.length > 14) {
-      outputText.style.fontSize = "2rem";
-      outputText.style.marginTop = "3.5rem";
+      setSmallerFontSize();
     }
   }
 });
