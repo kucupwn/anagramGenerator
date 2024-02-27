@@ -58,17 +58,18 @@ function startSession(input) {
 }
 
 function setSmallerFontSize() {
-  outputText.style.fontSize = "2rem";
+  enterTitle.style.fontSize = "1.5rem";
+  outputText.style.fontSize = "1.5rem";
   outputText.style.marginTop = "3.5rem";
 }
 
 const anagramHistory = [];
-const amount = 3;
 const generateButton = document.getElementById("generateButton");
 const restartButton = document.getElementById("restartButton");
 const enterTitle = document.getElementById("enterTitle");
 const inputField = document.getElementById("inputField");
-const genNumber = document.getElementById("generateNumber");
+let amount = 1;
+let genNumber = document.getElementById("generateNumber");
 let outputText = document.getElementById("outputText");
 
 generateButton.addEventListener("click", function () {
@@ -78,6 +79,19 @@ generateButton.addEventListener("click", function () {
     if (input.length > 14) {
       setSmallerFontSize();
     }
+  }
+});
+
+genNumber.addEventListener("click", function () {
+  if (amount === 1) {
+    amount = 3;
+    genNumber.textContent = 3;
+  } else if (amount === 3) {
+    amount = 5;
+    genNumber.textContent = 5;
+  } else if (amount === 5) {
+    amount = 1;
+    genNumber.textContent = 1;
   }
 });
 
