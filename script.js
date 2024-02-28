@@ -22,9 +22,7 @@ function getInput() {
 }
 
 function getSizeWoDuplicate(input) {
-  let set = new Set(input);
-
-  return set.size;
+  return new Set(input).size;
 }
 
 function getAnagram(name) {
