@@ -5,7 +5,8 @@ const inputField = document.getElementById("inputField");
 let genNumber = document.getElementById("generateNumber");
 let outputText = document.getElementById("outputText");
 let amount = 1;
-const anagramHistory = [];
+let userInput;
+let anagramHistory = [];
 
 function factorial(num) {
   let result = 1;
@@ -22,6 +23,12 @@ function getInput() {
   return inputValue;
 }
 
+function getSizeWoDuplicate(input) {
+  let set = new Set(input);
+
+  return set.size;
+}
+
 function getAnagram(name) {
   let splitted = name.toUpperCase().split("");
 
@@ -35,7 +42,7 @@ function getAnagram(name) {
 
 function getAnagramArray(input, amount) {
   const anagrams = [];
-  const maxVariants = factorial(input.length);
+  const maxVariants = factorial(getSizeWoDuplicate(input));
   const remainingVariants = maxVariants - anagramHistory.length;
 
   if (remainingVariants === 0) {
@@ -44,15 +51,10 @@ function getAnagramArray(input, amount) {
 
   const generateAmount = Math.min(amount, remainingVariants);
 
-  for (let i = 0; i < generateAmount; i++) {
+  while (anagrams.length < generateAmount) {
     const anagram = getAnagram(input);
 
-    if (
-      anagramHistory.length === input.length &&
-      anagramHistory.includes(anagram)
-    ) {
-      i--;
-    } else {
+    if (!anagramHistory.includes(anagram)) {
       anagramHistory.push(anagram);
       anagrams.push(anagram);
     }
@@ -93,10 +95,10 @@ function setSmallerFontSize() {
 }
 
 generateButton.addEventListener("click", function () {
-  const input = getInput();
-  if (input.length > 1) {
-    startSession(input);
-    if (input.length > 9 && screen.width < 750) {
+  userInput = getInput();
+  if (userInput.length > 1) {
+    startSession(userInput);
+    if (userInput.length > 9 && screen.width < 750) {
       setSmallerFontSize();
     }
   }
