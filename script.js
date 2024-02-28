@@ -18,9 +18,7 @@ function factorial(num) {
 }
 
 function getInput() {
-  const inputValue = inputField.value.trim().toUpperCase();
-
-  return inputValue;
+  return inputField.value.trim().toUpperCase();
 }
 
 function getSizeWoDuplicate(input) {
@@ -81,7 +79,6 @@ function startSession(input) {
     anagramHistory.push(input);
   }
 
-  console.log(anagramHistory);
   enterTitle.innerHTML = input;
   outputText.innerHTML = getAnagramArray(input, amount);
   inputField.classList.add("hidden");
