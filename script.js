@@ -26,7 +26,7 @@ function getSizeWoDuplicate(input) {
 }
 
 function getAnagram(name) {
-  let splitted = name.toUpperCase().split("");
+  const splitted = name.toUpperCase().split("");
 
   for (let i = splitted.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -37,9 +37,9 @@ function getAnagram(name) {
 }
 
 function getAnagramArray(input, amount) {
-  const anagrams = [];
   const maxVariants = factorial(getSizeWoDuplicate(input));
   const remainingVariants = maxVariants - anagramHistory.length;
+  let anagrams = [];
 
   if (remainingVariants === 0) {
     return "No more variants";
