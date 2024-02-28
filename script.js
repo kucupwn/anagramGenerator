@@ -59,7 +59,7 @@ function getAnagramArray(input, amount) {
   return anagrams.join(" / ");
 }
 
-function setGenerateNumber() {
+function setGenNumber() {
   if (amount === 1) {
     amount = 3;
     genNumber.textContent = 3;
@@ -101,7 +101,7 @@ generateButton.addEventListener("click", function () {
 });
 
 genNumber.addEventListener("click", function () {
-  setGenerateNumber();
+  setGenNumber();
 });
 
 restartButton.addEventListener("click", function () {
