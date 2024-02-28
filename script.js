@@ -77,6 +77,11 @@ function setGenerateNumber() {
 }
 
 function startSession(input) {
+  if (anagramHistory.length === 0) {
+    anagramHistory.push(input);
+  }
+
+  console.log(anagramHistory);
   enterTitle.innerHTML = input;
   outputText.innerHTML = getAnagramArray(input, amount);
   inputField.classList.add("hidden");
