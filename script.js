@@ -44,10 +44,15 @@ function getAnagramArray(input, amount) {
 
   const generateAmount = Math.min(amount, remainingVariants);
 
-  while (anagrams.length < generateAmount) {
+  for (let i = 0; i < generateAmount; i++) {
     const anagram = getAnagram(input);
 
-    if (!anagramHistory.includes(anagram)) {
+    if (
+      anagramHistory.length === input.length &&
+      anagramHistory.includes(anagram)
+    ) {
+      i--;
+    } else {
       anagramHistory.push(anagram);
       anagrams.push(anagram);
     }
