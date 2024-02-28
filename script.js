@@ -60,11 +60,7 @@ function getAnagramArray(input, amount) {
     }
   }
 
-  if (anagrams.length > 1) {
-    return anagrams.join(" / ");
-  } else {
-    return anagrams;
-  }
+  return anagrams.join(" / ");
 }
 
 function setGenerateNumber() {
