@@ -16,6 +16,12 @@ function factorial(num) {
   return result;
 }
 
+function getInput() {
+  const inputValue = inputField.value.trim().toUpperCase();
+
+  return inputValue;
+}
+
 function getAnagram(name) {
   let splitted = name.toUpperCase().split("");
 
@@ -52,12 +58,6 @@ function getAnagramArray(input, amount) {
   } else {
     return anagrams;
   }
-}
-
-function getInput() {
-  const inputValue = inputField.value.trim().toUpperCase();
-
-  return inputValue;
 }
 
 function setGenerateNumber() {
